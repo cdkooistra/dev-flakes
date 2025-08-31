@@ -1,4 +1,5 @@
 # flake.lock is not needed.
 # each init that uses these templates will generate their own specific lockfile,
 # rendering lockfiles in this repo useless
-*.lock
+flake.lock
+*/flake.lock
