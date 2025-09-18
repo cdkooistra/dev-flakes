@@ -33,3 +33,20 @@ Or use it as an input in a flake:
     };
 }
 ```
+
+Or when you most likely will not make any changes, use the following flake:
+
+```nix
+{
+  inputs = {
+    dev-flakes.url = "github:cdkooistra/dev-flakes";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
+  
+  outputs = { dev-flakes, flake-utils, ... }:
+    let shell = "<desired flake here>";
+    in flake-utils.lib.eachDefaultSystem (system: {
+      devShells.default = dev-flakes.devShells.${system}.${shell};
+    });
+}
+```
