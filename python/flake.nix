@@ -12,7 +12,7 @@
         pkgs = import nixpkgs { inherit system; };
 
         py312 = pkgs.mkShell {
-          buildInputs = with pkgs; [ python312Full uv ];
+          buildInputs = with pkgs; [ python312 uv ];
           shellHook = ''
             VENV=.venv
             if [ ! -d "$VENV" ]; then uv venv $VENV; fi
@@ -22,7 +22,7 @@
         };
 
         py313 = pkgs.mkShell {
-          buildInputs = with pkgs; [ python313Full uv ];
+          buildInputs = with pkgs; [ python313 uv ];
           shellHook = ''
             VENV=.venv
             if [ ! -d "$VENV" ]; then uv venv $VENV; fi
